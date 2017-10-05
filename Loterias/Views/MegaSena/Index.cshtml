@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Mega Sena";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Registrar Aposta</h2>
+        <p>
+            Registrar Aposta de Seis Números
+        </p>
+        <p>@Html.ActionLink("Apostar", "Apostar", "MegaSena", null, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Realizar Sorteio</h2>
+        <p>
+            Realize o sorteio de seis números
+        </p>
+        <p>@Html.ActionLink("Sorteio", "Resultados", "MegaSena", null, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Conferir Resultado</h2>
+        <p>
+            Conferir Resultado de uma Aposta
+        </p>
+        <p>@Html.ActionLink("Sorteio", "Resultados", "MegaSena", null, new { @class = "btn btn-default" })</p>
+    </div>
+</div>
+

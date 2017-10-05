@@ -1,0 +1,17 @@
+﻿@model Loterias.Models.JogoLoteria
+
+
+@{
+    ViewBag.Title = "Apostar";
+}
+
+<h2>Apostar</h2>
+
+@using (Html.BeginForm("RegistrarAposta", "MegaSena"))
+{
+    Html.RenderPartial("~/Views/FormularioAposta.cshtml", Model);
+}
+
+<div>
+    @Html.ActionLink("Retornar", "Index")
+</div>

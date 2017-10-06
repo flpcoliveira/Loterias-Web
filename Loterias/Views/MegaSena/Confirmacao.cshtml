@@ -1,0 +1,68 @@
+﻿@model Loterias.Models.Aposta
+
+@{
+    ViewBag.Title = "Confirmacao";
+}
+
+<h2>Confirmacao</h2>
+
+<div>
+    <h4>Aposta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nº da Aposta: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumAposta)
+        </dd>
+
+        <dt>
+            Data/Hora: 
+        </dt>
+
+        <dd>
+            @Model.DataHora.ToString("dd/MM/yyyy HH:mm:ss")
+        </dd>
+
+        <dt>
+
+            Surpresinha: 
+        </dt>
+
+        <dd>
+            @if (Model.Surpresinha)
+            {
+                <span>Sim</span>
+            }
+            else
+            {
+                <span>Não</span>
+            }
+
+        </dd>
+
+    </dl>
+
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <label>Númmeros Apostados:</label>
+        <table class="table table-responsive">
+            <tbody>
+                <tr>
+                    @foreach (var i in Model.NumerosSelecionados)
+                    {
+                        <td>@i</td>
+                    }
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+<p> |
+    @Html.ActionLink("Voltar", "Index")
+</p>

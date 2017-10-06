@@ -10,7 +10,7 @@ namespace Loterias.Servicos
 {
     public abstract class LoteriaServico
     {
-        protected JogoLoteria Jogo { get; private set; }
+        public JogoLoteria Jogo { get; private set; }
 
         protected LoteriaServico(JogoLoteriaEnum jogoEnum)
         {
@@ -30,10 +30,9 @@ namespace Loterias.Servicos
                 listaNumeros = new HashSet<int>(numeros);
                 if (listaNumeros.Count <= Jogo.QtdNumerosAposta)
                 {
-                    listaNumeros = new HashSet<int>(numeros);
                     while (listaNumeros.Count != Jogo.QtdNumerosAposta)
                     {
-                        List<int> numerosFaltando = ObterNumeros(listaNumeros.Count);
+                        List<int> numerosFaltando = ObterNumeros(Jogo.QtdNumerosAposta - listaNumeros.Count);
                         foreach(var v in numerosFaltando)
                         {
                             listaNumeros.Add(v);
@@ -43,10 +42,10 @@ namespace Loterias.Servicos
                 else
                 {
                     return null;
-                }
-                aposta = new Aposta(surpresinha, listaNumeros.ToList());
-                Jogo.IncluirAposta(aposta);
+                }                
             }
+            aposta = new Aposta(surpresinha, listaNumeros.ToList());
+            Jogo.IncluirAposta(aposta);
             return aposta;
         }
 
@@ -83,11 +82,5 @@ namespace Loterias.Servicos
         }
 
 
-
-
-        protected List<int> ObterNumerosSorteio()
-        {
-            return null;
-        }
     }
 }

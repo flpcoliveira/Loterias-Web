@@ -13,6 +13,8 @@ namespace Loterias.Models
 
         public ulong NumAposta { get; private set; }
 
+        public DateTime DataHora { get; private set; }
+
         public SortedSet<int> NumerosSelecionados { get;  }
 
         public bool Surpresinha { get;  }
@@ -22,6 +24,7 @@ namespace Loterias.Models
             NumAposta = ProximoNumeroAposta++;
             this.NumerosSelecionados = new SortedSet<int>(numeros);
             this.Surpresinha = surpresinha;
+            DataHora = DateTime.Now;
         }
 
         public void Alterar()

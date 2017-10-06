@@ -2,15 +2,26 @@
 
 @Html.AntiForgeryToken()
 
+
 <div class="form-horizontal">
     <h4>@Model.Nome</h4>
+    @if (ViewBag.Mensagens != null)
+    {
+        foreach (var msg in ViewBag.Mensagens)
+        {
+            <div class="col-md-12 alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert">×</a>
+                @msg
+            </div>
+        }
+    }
     <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
     <div class="checkbox">
-        <input type="checkbox" class="checkbox" id="surpresinha" name="surpresinha" value="true" /><label for="surpresinha">Surpresinha</label>
+        <input type="checkbox" class="checkbox" id="surpresinha" name="surpresinha" value="true" /><label for="surpresinha">Marque aqui para Surpresinha</label>
     </div>
     <div class="form-group">
-        <label class="col-md-12">Números</label>
+        <label class="col-md-12">Ou selecione até 6 números abaixo</label>
         <div class="col-md-12">
             <table class="table table-responsive table-striped">
                 <tbody>
@@ -54,4 +65,21 @@
         </div>
     </div>
 </div>
+
+@section scripts
+{
+<script type="text/javascript">
+        $(function () {
+            $('#surpresinha').change(function () {
+                if ($(this).attr('checked')) {
+                    $("input[name='numero']").toggleClass('disabled');
+                } else {
+                    $("input[name='numero']").toggleClass('disabled');
+                }
+            });
+        });
+</script>
+    
+}
+    
 

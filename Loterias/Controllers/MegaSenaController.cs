@@ -13,7 +13,7 @@ namespace Loterias.Controllers
 
         public ActionResult Apostar()
         {
-            return View(DadosJogos.ObterAposta(DadosJogos.JogoLoteriaEnum.MegaSena));
+            return View(DadosJogos.ObterJogoLoteria(DadosJogos.JogoLoteriaEnum.MegaSena));
         }
 
         [HttpPost]

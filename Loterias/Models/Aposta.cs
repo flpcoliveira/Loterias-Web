@@ -13,14 +13,14 @@ namespace Loterias.Models
 
         public ulong NumAposta { get; private set; }
 
-        public SortedSet<byte> NumerosSelecionados { get;  }
+        public SortedSet<int> NumerosSelecionados { get;  }
 
         public bool Surpresinha { get;  }
 
-        public Aposta(bool surpresinha)
+        public Aposta(bool surpresinha, IEnumerable<int> numeros)
         {
             NumAposta = ProximoNumeroAposta++;
-            this.NumerosSelecionados = new SortedSet<byte>();
+            this.NumerosSelecionados = new SortedSet<int>(numeros);
             this.Surpresinha = surpresinha;
         }
 

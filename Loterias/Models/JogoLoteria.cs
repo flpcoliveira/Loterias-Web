@@ -20,7 +20,11 @@ namespace Loterias.Models
 
         public bool IncluirZero { get; set; }
 
+        public byte QtdNumerosSorteados { get; set; }
+
         private List<Aposta> Apostas { get; set; }
+
+        public SortedSet<int> Resultado { get; set; }
 
         public void IncluirAposta(Aposta aposta)
         {

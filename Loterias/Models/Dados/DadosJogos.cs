@@ -12,10 +12,10 @@ namespace Loterias.Models.Dados
         private static HashSet<JogoLoteria> jogos = new HashSet<JogoLoteria>();
         public static void RegistrarJogos()
         {
-            jogos.Add(new JogoLoteria { Nome = JogoLoteriaEnum.MegaSena.GetDescricao(), QtdNumerosDisponiveis = 60, QtdNumerosAposta = 6, IncluirZero = false });
+            jogos.Add(new JogoLoteria { Nome = JogoLoteriaEnum.MegaSena.GetDescricao(), QtdNumerosDisponiveis = 60, QtdNumerosAposta = 6, IncluirZero = false, QtdNumerosSorteados = 6 });
         }
 
-        internal static JogoLoteria ObterAposta(JogoLoteriaEnum jogo)
+        internal static JogoLoteria ObterJogoLoteria(JogoLoteriaEnum jogo)
         {
             return jogos.FirstOrDefault(x => x.Nome.Equals(jogo.GetDescricao()));
         }
@@ -24,13 +24,6 @@ namespace Loterias.Models.Dados
         {
             var megaSena = jogos.FirstOrDefault(x => x.Nome.Equals(jogo.GetDescricao()));
             megaSena.IncluirAposta(aposta);
-        }
-
-
-        public enum JogoLoteriaEnum
-        {
-            [Description("Mega Sena")]
-            MegaSena
         }
     }
 }

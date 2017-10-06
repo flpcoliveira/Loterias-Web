@@ -151,7 +151,10 @@
     <Compile Include="Models\Dados\DadosJogos.cs" />
     <Compile Include="Models\JogoLoteria.cs" />
     <Compile Include="Models\Util\EnumExtensao.cs" />
+    <Compile Include="Models\Util\JogoLoteriaEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\LoteriaServico.cs" />
+    <Compile Include="Servicos\MegaSenaServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -196,7 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

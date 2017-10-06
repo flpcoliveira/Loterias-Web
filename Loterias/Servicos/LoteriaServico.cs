@@ -33,16 +33,16 @@ namespace Loterias.Servicos
                     while (listaNumeros.Count != Jogo.QtdNumerosAposta)
                     {
                         List<int> numerosFaltando = ObterNumeros(Jogo.QtdNumerosAposta - listaNumeros.Count);
-                        foreach(var v in numerosFaltando)
+                        foreach (var v in numerosFaltando)
                         {
                             listaNumeros.Add(v);
-                        }                        
-                    }                    
+                        }
+                    }
                 }
                 else
                 {
                     return null;
-                }                
+                }
             }
             aposta = new Aposta(surpresinha, listaNumeros.ToList());
             Jogo.IncluirAposta(aposta);
@@ -79,6 +79,19 @@ namespace Loterias.Servicos
             }
 
             return numeros;
+        }
+
+        public void RegistrarSorteio()
+        {
+            var numeros = ObterNumeros(Jogo.QtdNumerosSorteados);
+            if (Jogo.Resultado.Count != Jogo.QtdNumerosSorteados)
+            {
+                foreach (var numero in numeros)
+                {
+                    Jogo.Resultado.Add(numero);
+                }
+            }
+
         }
 
 

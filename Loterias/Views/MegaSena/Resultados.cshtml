@@ -1,0 +1,50 @@
+﻿@model Loterias.Models.JogoLoteria
+
+@{
+    ViewBag.Title = "Resultados";
+}
+
+<h2>Resultados</h2>
+
+@if (Model.Resultado.Count == 0)
+{
+    <div class="col-md-12 alert alert-danger">
+        Aguarde a realização sorteio para a validar da aposta
+    </div>
+}
+else
+{
+    if (ViewBag.Mensagens != null)
+    {
+        foreach (var msg in ViewBag.Mensagens)
+        {
+            <div class="col-md-12 alert alert-danger">
+                @msg
+            </div>
+        }
+    }
+
+    using (Html.BeginForm("Resultados", "MegaSena"))
+    {
+        <div class="form-group">
+            <div class="col-md-12">
+                <label for="numAposta"></label>
+                <input type="number" id="numAposta" name="numAposta" value="@ViewBag.Aposta?.NumAposta" />
+
+            </div>
+        </div>
+
+
+            <div class="form-group col-md-12">
+                <button type="submit">Consultar</button>
+            </div>
+
+    }
+    if (ViewBag.Aposta != null)
+    {
+        <hr />
+
+        <div class="col-md-12">Aposta Nº @ViewBag.Aposta.NumAposta acertou @ViewBag.QtdAcertos números</div>
+    }
+
+}

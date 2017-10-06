@@ -10,6 +10,7 @@ namespace Loterias.Models
         public JogoLoteria()
         {
             this.Apostas = new List<Aposta>();
+            Resultado = new SortedSet<int>();
         }
 
         public string Nome { get; set; }
@@ -29,6 +30,15 @@ namespace Loterias.Models
         public void IncluirAposta(Aposta aposta)
         {
             Apostas.Add(aposta);
+        }
+
+        internal Aposta ObterAposta(ulong? numAposta)
+        {
+            Aposta aposta = null;
+
+            aposta = Apostas.FirstOrDefault(x => x.NumAposta == numAposta);
+
+            return aposta;
         }
     }
 }
